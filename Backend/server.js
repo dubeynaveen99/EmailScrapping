@@ -4,7 +4,7 @@ const path = require('path');
 const { exec } = require('child_process');
 
 const app = express();
-const port = 3000;
+
 
 // Middleware to parse JSON and form data
 app.use(express.json());
@@ -128,6 +128,7 @@ app.post('/search', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
