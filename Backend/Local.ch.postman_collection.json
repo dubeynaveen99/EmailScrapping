@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "5e42bc20-9189-4374-94d1-ea9ef3ed5330",
+		"name": "UpdatedScrapping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38235581"
+	},
+	"item": [
+		{
+			"name": "https://www.local.ch/_next/data/{{id}}/en/s/{{searchQuery}}.json?rid={{rid}}&page={{page}}&search=s&searchQuery={{searchQuery}}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Set the initial page and initialize the results array in the environment\r",
+							"if (!pm.environment.get(\"currentPage\")) {\r",
+							"    pm.environment.set(\"currentPage\", 1);\r",
+							"    pm.environment.set(\"results\", \"[]\");  // Initialize an empty array for results\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"// Set initial values if not present\r",
+							"if (!pm.environment.get(\"currentPage\")) {\r",
+							"    pm.environment.set(\"currentPage\", 1);\r",
+							"    pm.environment.set(\"results\", \"[]\");  // Initialize an empty array for results\r",
+							"}\r",
+							"\r",
+							"// Extract the response body as JSON\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"let totalResults=jsonData.pageProps.searchMeta.totalResults||0;\r",
+							"console.log(totalResults);\r",
+							"\r",
+							"let currentPage = parseInt(pm.environment.get(\"currentPage\"));\r",
+							"let results = jsonData.pageProps?.data?.search?.entries || [];\r",
+							"\r",
+							"// Append new results to the existing results\r",
+							"let allResults = JSON.parse(pm.environment.get(\"results\"));\r",
+							"allResults = allResults.concat(results);\r",
+							"pm.environment.set(\"results\", JSON.stringify(allResults));\r",
+							"\r",
+							"// Extract total results from pageProps.searchmeta.totalResult\r",
+							"\r",
+							"let totalPages = Math.ceil(totalResults / 20); // 20 results per page\r",
+							"console.log(totalPages);\r",
+							"\r",
+							"// Recursive function to trigger the next page request\r",
+							"const fetchNextPage = function(currentPage) {\r",
+							"    let rid = pm.environment.get(\"rid\");\r",
+							"    let id=pm.environment.get(\"id\");\r",
+							"    let searchQuery = pm.environment.get(\"searchQuery\");\r",
+							"    \r",
+							"    // Construct the URL for the next page\r",
+							"    let newUrl = `https://www.local.ch/_next/data/${id}/en/s//${searchQuery}.json?rid=${rid}&page=${currentPage}&search=s&searchQuery=${searchQuery}`;\r",
+							"\r",
+							"    pm.sendRequest(newUrl, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.error('Error fetching page:', currentPage, err);\r",
+							"        } else {\r",
+							"            // Parse the new response and continue fetching the next page\r",
+							"            let newJsonData = res.json();\r",
+							"            let newResults = newJsonData.pageProps?.data?.search?.entries || [];\r",
+							"            \r",
+							"            // Append new results to the existing results\r",
+							"            let updatedResults = JSON.parse(pm.environment.get(\"results\"));\r",
+							"            updatedResults = updatedResults.concat(newResults);\r",
+							"            pm.environment.set(\"results\", JSON.stringify(updatedResults));\r",
+							"            \r",
+							"            // Increment page and trigger the next request if more pages are available\r",
+							"            if (currentPage < totalPages) {\r",
+							"                currentPage++;\r",
+							"                pm.environment.set(\"currentPage\", currentPage);\r",
+							"                fetchNextPage(currentPage); // Recursively fetch the next page\r",
+							"            } else {\r",
+							"                // Process final results once all pages are fetched\r",
+							"                let finalResults = JSON.parse(pm.environment.get(\"results\"));\r",
+							"\r",
+							"                // Extract relevant fields (title, email, phone, url)\r",
+							"                let processedResults = finalResults.map(item => {\r",
+							"                    let title = item?.entry?.title || 'No title';\r",
+							"                    let emailContact = item?.entry?.contacts?.find(contact => contact.__typename === 'EmailContact');\r",
+							"                    let email = emailContact ? emailContact.value : 'Not available';\r",
+							"                    let phoneContact = item?.entry?.contacts?.find(contact => contact.__typename === 'PhoneContact');\r",
+							"                    let phone = phoneContact ? phoneContact.value : 'Not available';\r",
+							"                    let urlContact = item?.entry?.contacts?.find(contact => contact.__typename === 'URLContact');\r",
+							"                    let url = urlContact ? urlContact.value : 'Not available';\r",
+							"\r",
+							"                    return { title, email, phone, url };\r",
+							"                });\r",
+							"\r",
+							"                // Store the final processed results in the environment for later use\r",
+							"                pm.environment.set(\"allEntries\", JSON.stringify(processedResults));\r",
+							"\r",
+							"                // Reset pagination variables\r",
+							"                pm.environment.unset(\"currentPage\");\r",
+							"                pm.environment.unset(\"results\");\r",
+							"\r",
+							"                // Final log statement after all results are added\r",
+							"                console.log(`Final Results Processed: ${processedResults.length} entries.`);\r",
+							"            }\r",
+							"        }\r",
+							"    });\r",
+							"};\r",
+							"\r",
+							"// Trigger the next page request if more pages are available\r",
+							"if (currentPage < totalPages) {\r",
+							"    currentPage++;\r",
+							"    pm.environment.set(\"currentPage\", currentPage);\r",
+							"    fetchNextPage(currentPage); // Start fetching from the next page\r",
+							"} else {\r",
+							"    // Process final results if already on the last page\r",
+							"    let finalResults = JSON.parse(pm.environment.get(\"results\"));\r",
+							"\r",
+							"    // Extract relevant fields (title, email, phone, url)\r",
+							"    let processedResults = finalResults.map(item => {\r",
+							"        let title = item?.entry?.title || 'No title';\r",
+							"        let emailContact = item?.entry?.contacts?.find(contact => contact.__typename === 'EmailContact');\r",
+							"        let email = emailContact ? emailContact.value : 'Not available';\r",
+							"        let phoneContact = item?.entry?.contacts?.find(contact => contact.__typename === 'PhoneContact');\r",
+							"        let phone = phoneContact ? phoneContact.value : 'Not available';\r",
+							"        let urlContact = item?.entry?.contacts?.find(contact => contact.__typename === 'URLContact');\r",
+							"        let url = urlContact ? urlContact.value : 'Not available';\r",
+							"\r",
+							"        return { title, email, phone, url };\r",
+							"    });\r",
+							"\r",
+							"    // Store the final processed results in the environment for later use\r",
+							"    pm.environment.set(\"allEntries\", JSON.stringify(processedResults));\r",
+							"\r",
+							"    // Reset pagination variables\r",
+							"    pm.environment.unset(\"currentPage\");\r",
+							"    pm.environment.unset(\"results\");\r",
+							"\r",
+							"    // Final log statement after all results are added\r",
+							"    console.log(`Final Results Processed: ${processedResults.length} entries.`);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.local.ch/_next/data/{{id}}/en/s/{{searchQuery}}.json?rid={{rid}}&page={{currentPage}}&search=s&searchQuery={{searchQuery}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"local",
+						"ch"
+					],
+					"path": [
+						"_next",
+						"data",
+						"{{id}}",
+						"en",
+						"s",
+						"{{searchQuery}}.json"
+					],
+					"query": [
+						{
+							"key": "rid",
+							"value": "{{rid}}"
+						},
+						{
+							"key": "page",
+							"value": "{{currentPage}}"
+						},
+						{
+							"key": "search",
+							"value": "s"
+						},
+						{
+							"key": "searchQuery",
+							"value": "{{searchQuery}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

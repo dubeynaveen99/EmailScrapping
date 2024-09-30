@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Generation Automation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1>Search and View Results</h1>
+    <form id="searchForm">
+        <label for="searchQuery">Search Query:</label>
+        <input type="text" id="searchQuery" name="searchQuery" required>
+        <label for="Source">Source</label>
+        <select id="Source">
+            <option value="Local">Select</option>
+            <option value="Local">Local.ch</option>
+            <option value="Yellow">YellowPage</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Processing Message -->
+    <div id="processingMessage" style="display: none;">Processing, please wait...</div>
+
+    <!-- Buttons to show results -->
+    <div id="buttons" style="display: none;">
+        <button id="showDuplicates">Show Duplicate Entries</button>
+        <button id="showAll" onclick="checkRecordCount()">Show All Entries</button>
+    </div>
+
+    <button id="exportButton" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+    
+    <div id="tables">
+        <table id="duplicatesTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <table id="allEntriesTable" style="display: none;"> 
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Results will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
