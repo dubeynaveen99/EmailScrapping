@@ -1,42 +1,61 @@
 body {
-    background-color: #f8f9fa; /* Light background color */
     font-family: Arial, sans-serif;
+    margin: 20px;
 }
 
 h1 {
-    color: #343a40; /* Dark gray color for the heading */
+    color: #333;
 }
 
-.card {
-    background-color: #ffffff; /* White background for the card */
-    border-radius: 8px; /* Rounded corners for the card */
+form {
+    margin-bottom: 20px;
 }
 
-.alert {
-    border-radius: 5px; /* Rounded corners for alert messages */
+button {
+    cursor: pointer;
 }
 
-.table {
-    margin-top: 20px; /* Space above the tables */
+#processingMessage {
+    color: #007bff;
+    font-weight: bold;
 }
 
-.table th {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white; /* White text for table headers */
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f2f2f2; /* Light gray for odd rows */
-}
-
-/* Responsive table container */
-#tables {
+/* Fixed table column width and word-wrap */
+table {
     width: 100%;
-    overflow-x: auto; /* Enable scrolling horizontally only if necessary */
-    padding-bottom: 15px; /* Extra padding to prevent table overflow */
+    border-collapse: collapse;
 }
 
-.table-container {
-    max-width: 100%; /* Prevent table from overflowing */
-    white-space: nowrap; /* Prevent text from wrapping inside table cells */
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+thead th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Adjusting columns */
+th {
+    word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    #tables {
+        overflow-x: auto;
+    }
 }

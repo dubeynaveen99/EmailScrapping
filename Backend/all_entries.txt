@@ -1,10 +1,10 @@
 Title: Osteria Santo Bevitore, Email: ciao@osteria-santobevitore.ch, Phone: +41442426161, URL: https://www.osteria-santobevitore.ch
-Title: il Basilico, Email: info@ilbasilico.ch, Phone: +41444508899, URL: http://www.ilbasilico.ch
 Title: Stripped Pizza Talacker, Email: Not available, Phone: +41445548523, URL: Not available
-Title: Pizzeria Bella Napoli, Email: 5stargastrogmbh@pizzeria-bellanapoli.ch, Phone: +41444507777, URL: https://www.pizzeria-bellanapoli.ch
-Title: Casa Nostrana, Email: Not available, Phone: +41444820090, URL: http://casa-nostrana.ch
-Title: La Penisola, Email: vincenzo@lapenisola.ch, Phone: +41444503372, URL: https://www.facebook.com/LaPaninotecaPizzeria?fref=ts
+Title: il Basilico, Email: info@ilbasilico.ch, Phone: +41444508899, URL: http://www.ilbasilico.ch
 Title: Osteria da Biagio, Email: Not available, Phone: +41443410076, URL: http://www.osteriadabiagio.ch
+Title: La Penisola, Email: vincenzo@lapenisola.ch, Phone: +41444503372, URL: https://www.facebook.com/LaPaninotecaPizzeria?fref=ts
+Title: Casa Nostrana, Email: Not available, Phone: +41444820090, URL: http://casa-nostrana.ch
+Title: Pizzeria Bella Napoli, Email: 5stargastrogmbh@pizzeria-bellanapoli.ch, Phone: +41444507777, URL: https://www.pizzeria-bellanapoli.ch
 Title: Il Grappolo, Email: info@restaurant-ilgrappolo.ch, Phone: +41444817060, URL: https://www.restaurant-ilgrappolo.ch/
 Title: Pizza Binz, Email: gian.al-khouri@bluewin.ch, Phone: +41433330076, URL: https://pizzabinz.ch/bestellen/pizza/
 Title: Bistro Valentino, Email: Not available, Phone: +41444228957, URL: https://www.valentino-pizza-pasta.ch/
