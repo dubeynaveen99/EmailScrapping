@@ -4,69 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lead Generation Automation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
-    <h1>Search and View Results</h1>
-    <form id="searchForm">
-        <label for="searchQuery">Search Query:</label>
-        <input type="text" id="searchQuery" name="searchQuery" required>
-        <label for="Source">Source</label>
-        <select id="Source">
-            <option value="Local">Select</option>
-            <option value="Local">Local.ch</option>
-            <option value="Yellow">YellowPage</option>
-        </select>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Search and View Results</h1>
+        <div class="card p-4 shadow">
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="searchQuery">Search Query:</label>
+                    <input type="text" id="searchQuery" name="searchQuery" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="Source">Source</label>
+                    <select id="Source" class="form-control">
+                        <option value="Local">Select</option>
+                        <option value="Local">Local.ch</option>
+                        <option value="Yellow">YellowPage</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
 
-    <!-- Processing Message -->
-    <div id="processingMessage" style="display: none;">Processing, please wait...</div>
+            <!-- Processing Message -->
+            <div id="processingMessage" class="alert alert-info" style="display: none;">Processing, please wait...</div>
 
-    <!-- Buttons to show results -->
-    <div id="buttons" style="display: none;">
-        <button id="showDuplicates" onclick="checkDupRecordCount()">Show Duplicate Entries</button>
-        <button id="showAll" onclick="checkRecordCount()">Show All Entries</button>
+            <!-- Buttons to show results -->
+            <div id="buttons" class="mb-3" style="display: none;">
+                <button id="showDuplicates" class="btn btn-warning" onclick="checkDupRecordCount()">Show Duplicate Entries</button>
+                <button id="showAll" class="btn btn-success" onclick="checkRecordCount()">Show All Entries</button>
+            </div>
+
+            <button id="DupexportButton" class="btn btn-secondary" style="display:none;" onclick="exportToExcelDuplicate()">Export Duplicate Records</button>
+            <button id="AllexportButton" class="btn btn-secondary" style="display:none;" onclick="exportToExcel()">Export All Records</button>
+
+            <div id="tables" class="mt-4">
+                <!-- Table container ensures no overflow and responsive view -->
+                <div class="table-container">
+                    <table id="duplicatesTable" class="table table-striped" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <table id="allEntriesTable" class="table table-striped" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Results will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button id="DupexportButton" style="display:none;" onclick="exportToExcelDuplicate()">Export Duplicate Records</button>
-    <button id="AllexportButton" style="display:none;" onclick="exportToExcel()">Export All Records</button>
-
-    
-    
-    <div id="tables">
-        <table id="duplicatesTable" style="display: none;">
-          
-    
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>URL</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-
-        <table id="allEntriesTable" style="display: none;"> 
-         
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>URL</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Results will be dynamically added here -->
-            </tbody>
-        </table>
-    </div>
-    
     <script src="script.js"></script>
-    
 </body>
 </html>

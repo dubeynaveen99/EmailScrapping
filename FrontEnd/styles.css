@@ -1,73 +1,42 @@
 body {
+    background-color: #f8f9fa; /* Light background color */
     font-family: Arial, sans-serif;
-    margin: 20px;
 }
 
-h1, h2 {
-    color: #333;
+h1 {
+    color: #343a40; /* Dark gray color for the heading */
 }
 
-form {
-    margin-bottom: 20px;
+.card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px; /* Rounded corners for the card */
 }
 
-label {
-    margin-right: 10px;
+.alert {
+    border-radius: 5px; /* Rounded corners for alert messages */
 }
 
-input[type="text"] {
-    padding: 5px;
-    width: 200px;
+.table {
+    margin-top: 20px; /* Space above the tables */
 }
 
-button {
-    padding: 5px 10px;
-    margin-left: 5px;
-    cursor: pointer;
+.table th {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text for table headers */
 }
 
-table {
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Light gray for odd rows */
+}
+
+/* Responsive table container */
+#tables {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    overflow-x: auto; /* Enable scrolling horizontally only if necessary */
+    padding-bottom: 15px; /* Extra padding to prevent table overflow */
 }
 
-table, th, td {
-    border: 1px solid #ccc;
+.table-container {
+    max-width: 100%; /* Prevent table from overflowing */
+    white-space: nowrap; /* Prevent text from wrapping inside table cells */
 }
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-select {
-    appearance: none; /* Hide default arrow */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 12px;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  select:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  option {
-    padding: 5px;
-  }
-
-  #Csv,#Excel{
-    margin: 10px;
-  }
-
-  #DupexportButton,#AllexportButton{
-    margin-top: 5px;
-  }
