@@ -1,16 +1,15 @@
 Title: Osteria Santo Bevitore, Email: ciao@osteria-santobevitore.ch, Phone: +41442426161, URL: https://www.osteria-santobevitore.ch
 Title: il Basilico, Email: info@ilbasilico.ch, Phone: +41444508899, URL: http://www.ilbasilico.ch
 Title: Stripped Pizza Talacker, Email: Not available, Phone: +41445548523, URL: Not available
-Title: Osteria da Biagio, Email: Not available, Phone: +41443410076, URL: http://www.osteriadabiagio.ch
-Title: La Penisola, Email: vincenzo@lapenisola.ch, Phone: +41444503372, URL: https://www.facebook.com/LaPaninotecaPizzeria?fref=ts
-Title: Casa Nostrana, Email: Not available, Phone: +41444820090, URL: http://casa-nostrana.ch
 Title: Pizzeria Bella Napoli, Email: 5stargastrogmbh@pizzeria-bellanapoli.ch, Phone: +41444507777, URL: https://www.pizzeria-bellanapoli.ch
-Title: Pizza Da Bella Italia, Email: bestellung@dabellaitalia.ch, Phone: +41443711616, URL: https://dabellaitalia.ch
+Title: Casa Nostrana, Email: Not available, Phone: +41444820090, URL: http://casa-nostrana.ch
+Title: La Penisola, Email: vincenzo@lapenisola.ch, Phone: +41444503372, URL: https://www.facebook.com/LaPaninotecaPizzeria?fref=ts
+Title: Osteria da Biagio, Email: Not available, Phone: +41443410076, URL: http://www.osteriadabiagio.ch
 Title: Il Grappolo, Email: info@restaurant-ilgrappolo.ch, Phone: +41444817060, URL: https://www.restaurant-ilgrappolo.ch/
-Title: Healthy Bowl, Email: Not available, Phone: +41445575891, URL: http://www.healthy-bowl.ch
-Title: Bistro Valentino, Email: Not available, Phone: +41444228957, URL: https://www.valentino-pizza-pasta.ch/
 Title: Pizza Binz, Email: gian.al-khouri@bluewin.ch, Phone: +41433330076, URL: https://pizzabinz.ch/bestellen/pizza/
-Title: Molini Pizza, Email: info@molinipizza.ch, Phone: +41444503939, URL: https://www.molinipizza.ch
+Title: Bistro Valentino, Email: Not available, Phone: +41444228957, URL: https://www.valentino-pizza-pasta.ch/
+Title: Pizza Da Bella Italia, Email: bestellung@dabellaitalia.ch, Phone: +41443711616, URL: https://dabellaitalia.ch
+Title: Healthy Bowl, Email: Not available, Phone: +41445575891, URL: http://www.healthy-bowl.ch
 Title: Restaurant Pizza Züri, Email: info@pizzazueri.ch, Phone: +41444928282, URL: Not available
 Title: Stripped Pizza Seefeld, Email: Not available, Phone: +41443829855, URL: https://www.stripped-pizza.com/
 Title: BUTEGAR - La Bottega Della Pizza, Email: pizza@butegar.ch, Phone: Not available, URL: Not available
@@ -32,7 +31,6 @@ Title: dieci Pizza Kurier Zürich Binz-Wollishofen, Email: Not available, Phone:
 Title: dieci Pizza Kurier Zürich Hardbrücke, Email: Not available, Phone: +41442422070, URL: Not available
 Title: dieci Pizza Kurier Zürich Oerlikon, Email: Not available, Phone: +41443085040, URL: Not available
 Title: dieci Pizza Kurier Zürichberg, Email: Not available, Phone: +41443619095, URL: Not available
-Title: Domino's Pizza, Email: Not available, Phone: +41844424242, URL: Not available
 Title: Domino's Pizza, Email: Not available, Phone: +41844424242, URL: Not available
 Title: Domino's Pizza Zürich Goldbrunnen, Email: marketing@dominos.ch, Phone: Not available, URL: Not available
 Title: Domino's Pizza Zürich Uni, Email: marketing@dominos.ch, Phone: Not available, URL: Not available
@@ -62,9 +60,7 @@ Title: Pizzeria il Sogno by Kalisi, Email: order@pizzeria-ilsogno.ch, Phone: +41
 Title: SHAHBA ROSE Zürich Inh. Joumaa, Email: shahbarose02@gmail.com, Phone: +41445784849, URL: http://www.shahbarose.ch/
 Title: Amore Pizzeria, Email: Not available, Phone: +41432521111, URL: Not available
 Title: Franco's Pizzaservice, Email: Not available, Phone: +41442819440, URL: Not available
-Title: Franco's Pizzaservice, Email: Not available, Phone: +41443120440, URL: Not available
 Title: Kurier 'Pirata', Email: Not available, Phone: +41443021100, URL: Not available
-Title: Telepizza, Email: Not available, Phone: +41844333333, URL: Not available
 Title: Telepizza, Email: Not available, Phone: +41844333333, URL: Not available
 Title: il postino Ristorante & Bar, Email: jimmy@ilpostino.ch, Phone: +41443506666, URL: http://www.ilpostino.ch/de
 Title: Olympic Lounge Café, Email: info@olympiclounge.ch, Phone: +41438880888, URL: https://www.olympiclounge.ch

@@ -26,14 +26,19 @@
 
     <!-- Buttons to show results -->
     <div id="buttons" style="display: none;">
-        <button id="showDuplicates">Show Duplicate Entries</button>
+        <button id="showDuplicates" onclick="checkDupRecordCount()">Show Duplicate Entries</button>
         <button id="showAll" onclick="checkRecordCount()">Show All Entries</button>
     </div>
 
-    <button id="exportButton" style="display:none;" onclick="exportToExcel()">Export to Excel</button>
+    <button id="DupexportButton" style="display:none;" onclick="exportToExcelDuplicate()">Export Duplicate Records</button>
+    <button id="AllexportButton" style="display:none;" onclick="exportToExcel()">Export All Records</button>
+
+    
     
     <div id="tables">
         <table id="duplicatesTable" style="display: none;">
+          
+    
             <thead>
                 <tr>
                     <th>Title</th>
@@ -46,6 +51,7 @@
         </table>
 
         <table id="allEntriesTable" style="display: none;"> 
+         
             <thead>
                 <tr>
                     <th>Title</th>

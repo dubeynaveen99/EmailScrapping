@@ -5,13 +5,11 @@ const { exec } = require('child_process');
 
 const app = express();
 
-
 // Middleware to parse JSON and form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// Serve static files from 'FrontEnd' folder
+// Serve static files from the 'FrontEnd' folder
 app.use(express.static(path.join(__dirname, '../FrontEnd')));
 
 // Serve index.html on the root route
@@ -24,7 +22,7 @@ const environmentFilePath = path.join(__dirname, 'Local.ch.postman_environment.j
 const collectionFilePath = path.join(__dirname, 'Local.ch.postman_collection.json');
 const outputFilePath = path.join(__dirname, 'output.json');
 const duplicatesFilePath = path.join(__dirname, 'duplicates.txt');
-const allEntriesFilePath = path.join(__dirname,'all_entries.txt');
+const allEntriesFilePath = path.join(__dirname, 'all_entries.txt');
 const scriptFilePath = path.join(__dirname, 'Script.js');
 
 // Endpoint to handle form submission
@@ -103,21 +101,8 @@ app.post('/search', (req, res) => {
 
                             // Send the data back as JSON
                             res.json({
-                                duplicates: dupData.trim().split('\n').map(line => {
-                                    const match = line.match(/Title:\s*(.*),\s*Email:\s*(.*),\s*Phone:\s*(.*),\s*URL:\s*(.*)/);
-                                    if (match) {
-                                        return { title: match[1], email: match[2], phone: match[3], url: match[4] };
-                                    }
-                                    return null;
-                                }).filter(Boolean),
-
-                                allEntries: allData.trim().split('\n').map(line => {
-                                    const match = line.match(/Title:\s*(.*),\s*Email:\s*(.*),\s*Phone:\s*(.*),\s*URL:\s*(.*)/);
-                                    if (match) {
-                                        return { title: match[1], email: match[2], phone: match[3], url: match[4] };
-                                    }
-                                    return null;
-                                }).filter(Boolean)
+                                duplicates: parseEntries(dupData),
+                                allEntries: parseEntries(allData)
                             });
                         });
                     });
@@ -126,6 +111,17 @@ app.post('/search', (req, res) => {
         });
     });
 });
+
+// Function to parse entries from text data
+const parseEntries = (data) => {
+    return data.trim().split('\n').map(line => {
+        const match = line.match(/Title:\s*(.*),\s*Email:\s*(.*),\s*Phone:\s*(.*),\s*URL:\s*(.*)/);
+        if (match) {
+            return { title: match[1], email: match[2], phone: match[3], url: match[4] };
+        }
+        return null;
+    }).filter(Boolean);
+};
 
 // Start the server
 const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set

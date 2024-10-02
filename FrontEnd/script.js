@@ -118,16 +118,38 @@ function exportToExcel() {
     
     // Create a new workbook and add the worksheet
     var workbook = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+   
     
     // Export the workbook
-    XLSX.writeFile(workbook, 'ExportedData.xlsx');
+    XLSX.writeFile(workbook, 'AllDataRecord.xlsx');
+    
 }
+
+
+function exportToExcelDuplicate(){
+    var dupTable=document.getElementById('duplicatesTable');
+    var workbookSecond=XLSX.utils.table_to_book(dupTable, { sheet: "Sheet1" });
+    XLSX.writeFile(workbookSecond, 'DuplicateDataRecord.xlsx');
+}
+
+
 
 
 function checkRecordCount() {
     // Show button only if there are more than 0 records
-    var exportButton = document.getElementById('exportButton');
+    var exportButton = document.getElementById('AllexportButton');
+    var exportDupButton=document.getElementById('DupexportButton');
         exportButton.style.display = 'block';
+        exportDupButton.style.display='none';
     
+  
+    
+}
+
+function checkDupRecordCount(){
+    var exportDupButton=document.getElementById('DupexportButton');
+    var exportButton = document.getElementById('AllexportButton');
+    exportDupButton.style.display='block';
+    exportButton.style.display = 'none';
 }
 

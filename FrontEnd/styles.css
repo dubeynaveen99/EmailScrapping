@@ -67,3 +67,7 @@ select {
   #Csv,#Excel{
     margin: 10px;
   }
+
+  #DupexportButton,#AllexportButton{
+    margin-top: 5px;
+  }

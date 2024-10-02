@@ -1,6 +1,5 @@
 const fs = require('fs');
-const path=require('path');
-
+const path = require('path');
 
 // Define file paths
 const currentDir = __dirname;
@@ -9,10 +8,6 @@ const currentDir = __dirname;
 const outputFilePath = path.join(currentDir, 'output.json');
 const duplicatesFilePath = path.join(currentDir, 'duplicates.txt');
 const allEntriesFilePath = path.join(currentDir, 'all_entries.txt');
-
-
-
-
 
 // Read the Newman output file
 let data;
